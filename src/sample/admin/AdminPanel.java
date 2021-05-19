@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import sample.Person;
 import javafx.fxml.Initializable;
 
@@ -34,7 +35,7 @@ public class AdminPanel implements Initializable {
     @FXML
     private TableColumn<Person, String>colPassword;
 
-   /* @FXML
+    @FXML
     public TextField name;
     @FXML
     public TextField dateOfBirth;
@@ -45,22 +46,33 @@ public class AdminPanel implements Initializable {
     @FXML
     public TextField voterID;
     @FXML
-    public TextField password;*/
+    public TextField password;
 
-   /* @FXML
-    ObservableList<Person>observableList= FXCollections.observableArrayList(
-            new Person("Protik","21/2/1991","Male","0193232333","54656","0000")
-    );*/
 
     @FXML
     public void initialize(URL location, ResourceBundle resources){
+        //Sets Up Column to the table
         colName.setCellValueFactory(new PropertyValueFactory<Person, String>("voterName"));
         colDateOfBirth.setCellValueFactory(new PropertyValueFactory<Person,String>("voterDateOfBirth"));
         colSex.setCellValueFactory(new PropertyValueFactory<Person,String>("voterSex"));
         colPhoneNumber.setCellValueFactory(new PropertyValueFactory<Person,String>("voterPhoneNumber"));
         colVoterID.setCellValueFactory(new PropertyValueFactory<Person,String>("voterVoterID"));
         colPassword.setCellValueFactory(new PropertyValueFactory<Person,String>("voterPassword"));
+
+        //loads dummy data
         tableView.setItems(getPeople());
+
+        //Update the table to allow modification
+        tableView.setEditable(true);
+        colName.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDateOfBirth.setCellFactory(TextFieldTableCell.forTableColumn());
+        colSex.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPhoneNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+        colVoterID.setCellFactory(TextFieldTableCell.forTableColumn());
+        colPassword.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        //This will allow select multiple row at once
+        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     }
 
@@ -77,17 +89,50 @@ public class AdminPanel implements Initializable {
         Person personSelected= tableView.getSelectionModel().getSelectedItem();
         personSelected.setVoterName(edittedCell.getNewValue().toString());
     }
+    public void changeDateOfBirthEvent(TableColumn.CellEditEvent edittedCell){
+        Person personSelected= tableView.getSelectionModel().getSelectedItem();
+        personSelected.setVoterName(edittedCell.getNewValue().toString());
+    }
+    public void changeSexEvent(TableColumn.CellEditEvent edittedCell){
+        Person personSelected= tableView.getSelectionModel().getSelectedItem();
+        personSelected.setVoterName(edittedCell.getNewValue().toString());
+    }
+    public void changePhoneNumberEvent(TableColumn.CellEditEvent edittedCell){
+        Person personSelected= tableView.getSelectionModel().getSelectedItem();
+        personSelected.setVoterName(edittedCell.getNewValue().toString());
+    }
+    public void changeVoterIDEvent(TableColumn.CellEditEvent edittedCell){
+        Person personSelected= tableView.getSelectionModel().getSelectedItem();
+        personSelected.setVoterName(edittedCell.getNewValue().toString());
+    }
+    public void changePasswordEvent(TableColumn.CellEditEvent edittedCell){
+        Person personSelected= tableView.getSelectionModel().getSelectedItem();
+        personSelected.setVoterName(edittedCell.getNewValue().toString());
+    }
 
 
-   /*@FXML
+    //Method That will add new voter
+   @FXML
     public void addVoter(ActionEvent event){
-        Person person=new Person(name.getText(), dateOfBirth.getText(), sex.getText(), phoneNumber.getText(),voterID.getText(),password.getText());
-        tableView.getItems();
-    }*/
+        Person newPerson=new Person(name.getText(), dateOfBirth.getText(), sex.getText(), phoneNumber.getText(),voterID.getText(),password.getText());
 
+        //get all items from the table as a list and add the new person to the list
+        tableView.getItems().add(newPerson);
+    }
+
+    //Removes selected rows
     @FXML
     public void removeVoter(ActionEvent event){
+        ObservableList<Person> selectedRows, allPeople;
+        allPeople= tableView.getItems();
 
+        //Gives rows that were selected
+        selectedRows=tableView.getSelectionModel().getSelectedItems();
+
+        //Loop over the selected rows and removes the person object from the table
+        for (Person person: selectedRows){
+            allPeople.remove(person);
+        }
     }
 
 

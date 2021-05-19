@@ -26,12 +26,12 @@
                             <children>
                                 <TableView fx:id="tableView" prefHeight="200.0" prefWidth="786.0">
                                     <columns>
-                                        <TableColumn fx:id="colName" prefWidth="180.79995423555374" text="Name" />
-                                        <TableColumn fx:id="colDateOfBirth" minWidth="0.0" prefWidth="141.6000518798828" text="Date Of Birth" />
-                                        <TableColumn fx:id="colSex" prefWidth="91.99993896484375" text="Sex" />
-                                        <TableColumn fx:id="colPhoneNumber" prefWidth="160.79998779296875" text="Phone Number" />
-                                        <TableColumn fx:id="colVoterID" prefWidth="108.79998779296875" text="Voter ID" />
-                                        <TableColumn fx:id="colPassword" prefWidth="109.5999755859375" text="Password" />
+                                        <TableColumn fx:id="colName" onEditCommit="#changeNameEvent" prefWidth="180.79995423555374" text="Name" />
+                                        <TableColumn fx:id="colDateOfBirth" minWidth="0.0" onEditCommit="#changeDateOfBirthEvent" prefWidth="141.6000518798828" text="Date Of Birth" />
+                                        <TableColumn fx:id="colSex" onEditCommit="#changeSexEvent" prefWidth="91.99993896484375" text="Sex" />
+                                        <TableColumn fx:id="colPhoneNumber" onEditCommit="#changePhoneNumberEvent" prefWidth="160.79998779296875" text="Phone Number" />
+                                        <TableColumn fx:id="colVoterID" onEditCommit="#changeVoterIDEvent" prefWidth="108.79998779296875" text="Voter ID" />
+                                        <TableColumn fx:id="colPassword" onEditCommit="#changePasswordEvent" prefWidth="109.5999755859375" text="Password" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -42,7 +42,7 @@
             <bottom>
                 <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="addVoter" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" stylesheets="@../../stylesheet.css" text="Add Voter" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#addVoter" prefHeight="44.0" prefWidth="101.0" stylesheets="@../../stylesheet.css" text="Add Voter" textFill="WHITE">
                             <HBox.margin>
                                 <Insets left="350.0" top="20.0" />
                             </HBox.margin>
