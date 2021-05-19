@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="441.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.VoterList">
+   <children>
+      <TableView layoutX="11.0" layoutY="55.0" prefHeight="332.0" prefWidth="568.0">
+        <columns>
+          <TableColumn prefWidth="59.0" text=" Votr Id" />
+          <TableColumn prefWidth="150.0" text=" Name" />
+            <TableColumn prefWidth="67.0" text=" Age" />
+            <TableColumn prefWidth="63.0" text=" Sex" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
