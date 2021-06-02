@@ -52,15 +52,15 @@
                 </CheckBox>
                 <ImageView fitHeight="134.0" fitWidth="122.0" layoutX="88.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../Resources/Republican Party.png" />
+                        <Image url="/Resources/Republican Party.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="119.0" fitWidth="119.0" layoutX="89.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../Resources/Democratic Party.png" />
+                        <Image url="/Resources/Democratic Party.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="201.0" layoutY="496.0" mnemonicParsing="false" stylesheets="@../../stylesheet.css" text="Vote" textFill="WHITE">
+                <Button fx:id="casteVote"  layoutX="203.0" layoutY="470.0" mnemonicParsing="false" onAction="#casteVote" stylesheets="/stylesheet.css" text="Vote" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="24.0" />
                     </font>
@@ -68,6 +68,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
+                <Button fx:id="voterLogOut" layoutX="325.0" layoutY="547.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: red;" text=" Log Out" textFill="WHITE" />
             </children>
         </AnchorPane>
     </right>

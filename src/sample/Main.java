@@ -16,7 +16,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
 
         Parent root = FXMLLoader.load(getClass().getResource("firstPage.fxml"));
-        primaryStage.setTitle("Admin LogIn Section");
+        primaryStage.setTitle("Voting Management System");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }

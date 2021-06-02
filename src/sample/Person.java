@@ -1,23 +1,27 @@
 package sample;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.ToggleGroup;
+
+import java.time.LocalDate;
 
 public class Person {
     private SimpleStringProperty voterName;
-    private SimpleStringProperty voterDateOfBirth;
+    private LocalDate voterDateOfBirth;
     private SimpleStringProperty voterSex;
     private SimpleStringProperty voterPhoneNumber;
     private SimpleStringProperty voterVoterID;
     private SimpleStringProperty voterPassword;
 
-    public Person(String voterName, String voterDateOfBirth, String voterSex, String voterPhoneNumber, String voterVoterID, String voterPassword) {
+    public Person(String voterName, LocalDate voterDateOfBirth, String voterSex, String voterPhoneNumber, String voterVoterID, String voterPassword) {
         this.voterName = new SimpleStringProperty(voterName);
-        this.voterDateOfBirth = new SimpleStringProperty(voterDateOfBirth);
+        this.voterDateOfBirth = voterDateOfBirth;
         this.voterSex = new SimpleStringProperty(voterSex);
         this.voterPhoneNumber = new SimpleStringProperty(voterPhoneNumber);
         this.voterVoterID = new SimpleStringProperty(voterVoterID);
         this.voterPassword = new SimpleStringProperty(voterPassword);
     }
+
 
     public String getVoterName() {
         return voterName.get();
@@ -31,28 +35,25 @@ public class Person {
         this.voterName.set(voterName);
     }
 
-    public String getVoterDateOfBirth() {
-        return voterDateOfBirth.get();
-    }
 
-    public SimpleStringProperty voterDateOfBirthProperty() {
+    public LocalDate getVoterDateOfBirth() {
         return voterDateOfBirth;
     }
 
-    public void setVoterDateOfBirth(String voterDateOfBirth) {
-        this.voterDateOfBirth.set(voterDateOfBirth);
+    public void setVoterDateOfBirth(LocalDate voterDateOfBirth) {
+        this.voterDateOfBirth = voterDateOfBirth;
     }
 
     public String getVoterSex() {
         return voterSex.get();
     }
 
-    public SimpleStringProperty voterSexProperty() {
-        return voterSex;
-    }
-
     public void setVoterSex(String voterSex) {
         this.voterSex.set(voterSex);
+    }
+
+    public SimpleStringProperty getVoterSexProperty() {
+        return voterSex;
     }
 
     public String getVoterPhoneNumber() {

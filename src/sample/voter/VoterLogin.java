@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sample.Main;
+import sample.Person;
 
 public class VoterLogin {
     public VoterLogin(){
@@ -30,13 +31,38 @@ public class VoterLogin {
     }
     public void checkvoterlogin() throws Exception{
         Main vl=new Main();
-        if (voterUsername.getText().toString().equals("voter") && voterPassword.getText().toString().equals("1234")){
+        if ((voterUsername.getText().toString().equals("185") && voterPassword.getText().toString().equals("1234"))){
             voterLabel.setText("success");
             vl.changeScene("voter/voterPanel.fxml");
         }
+        else if (voterUsername.getText().toString().equals("187") && voterPassword.getText().toString().equals("1234")){
+            vl.changeScene("voter/voterPanel.fxml");
+        }
+        else if (voterUsername.getText().toString().equals("186") && voterPassword.getText().toString().equals("1234")){
+            vl.changeScene("voter/voterPanel.fxml");
+        }
+        else if (voterUsername.getText().toString().equals("188") && voterPassword.getText().toString().equals("1234")){
+            vl.changeScene("voter/voterPanel.fxml");
+        }
+        else if (voterUsername.getText().toString().equals("189") && voterPassword.getText().toString().equals("1234")){
+            vl.changeScene("voter/voterPanel.fxml");
+        }
         else {
+
             voterLabel.setText("Please Enter Right Username or Password");
         }
 
     }
+/*public void checkvoterlogin() throws Exception{
+    Main vl=new Main();
+    if (voterUsername.getText().toString().equals(getVoterVoterID) && voterPassword.getText().toString().equals(getVoterPassword())){
+        voterLabel.setText("success");
+        vl.changeScene("voter/voterPanel.fxml");
+    }
+    else {
+        voterLabel.setText("Please Enter Right Username or Password");
+    }
+
+}*/
+
 }
